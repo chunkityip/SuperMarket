@@ -1,6 +1,7 @@
 package com.supermarket.common.utils;
 
 
+import java.security.SecureRandom;
 import javax.imageio.ImageIO;
 import java.awt.*;
 import java.awt.image.BufferedImage;
@@ -104,7 +105,7 @@ public class VerifyCode {
      * 生成随机数的方法
      */
     private static int getRandom(int start, int end) {
-        Random random = new Random();
+        Random random = new SecureRandom();
         return random.nextInt(end - start) + start;
     }
 
