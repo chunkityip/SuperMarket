@@ -154,8 +154,10 @@ public final class CookieUtils {
             if (cookieMaxage > 0)
                 cookie.setMaxAge(cookieMaxage);
             if (null != request)// 设置域名的cookie
-                //cookie.setDomain(getDomainName(request));		引发无法设置cookie
-            cookie.setPath("/");
+                
+            {
+                cookie.setPath("/");
+            }
             response.addCookie(cookie);
         } catch (Exception e) {
             logger.error("Cookie Encode Error.", e);
