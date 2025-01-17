@@ -3,6 +3,7 @@ package com.supermarket.image.service;
 import com.supermarket.common.utils.TimeUtils;
 import com.supermarket.common.utils.UploadUtils;
 import com.supermarket.common.utils.VerifyCode;
+import io.github.pixee.security.Filenames;
 import org.apache.logging.log4j.util.Strings;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -32,7 +33,7 @@ public class ImageServiceImpl implements ImageService {
     @Override
     public String uploadImg(MultipartFile pic) {
         // TODO 处理图片
-        String fileName = pic.getOriginalFilename();
+        String fileName = Filenames.toSimpleFileName(pic.getOriginalFilename());
         if (
                 fileName != null        // 文件名非空
                         && (fileName.endsWith(".jpg") || fileName.endsWith(".png") || fileName.endsWith(".jpeg") || fileName.endsWith(".gif"))  // 后缀符合要求
